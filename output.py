@@ -1,21 +1,44 @@
 '''
-User 1 -> Recommendation: Given the user’s excitement about the location, we should highlight the value of properties in that area while addressing their concerns about price and mortgage rates. Let’s offer tailored financing options or incentives to ease their anxiety, and schedule a follow-up meeting to discuss these solutions in detail, capitalizing on their high intent to purchase.
+user_id  composite_score lead_category  \
+0        1         0.717250           Hot   
+1        2         0.025375          Cold   
+2        3         0.486250       Neutral   
+3        4         0.000000          Cold   
+4        5         0.872000           Hot   
+5        6         0.260000          Cold   
+6        7         0.133375          Cold   
+7        8         0.710000           Hot   
+8        9         0.000000          Cold   
+9       10         0.332500          Cold   
 
-User 2 -> Recommendation: The user has expressed a positive sentiment towards the location, indicating strong potential for interest. To enhance their engagement and address their concern about price, consider highlighting any ongoing promotions or flexible pricing options available, while inviting them to explore the amenities further to boost their curiosity and confidence in making a decision.
+recommendation  
+0                                                                                                                        
+Focus on highlighting the attractive location and exceptional service in your messaging to resonate with the lead’s positive sentiments. To address concerns about price, consider offering flexible budgeting options or showcasing value deals; incorporate keywords like "apartment," "budget," and "deal" to align with their interests and drive excitement further, while mitigating any anxiety they may have about the purchase.  
 
-User 3 -> Recommendation: Despite the user's current hesitance and concerns about price and amenities, we should highlight any special offers or improvements in these areas to alleviate their anxiety. Engaging them with personalized assistance and addressing their specific needs could help turn their interaction into a sale.
+1                                                                      
+Given the lead's high anxiety and curiosity levels regarding villas, tailor your messaging to address their research intent by providing informative content about villa options and pricing structures. To improve the perception of price, consider highlighting value propositions or offering flexible financing options, while also addressing their eagerness for information to alleviate their concerns and foster excitement around the potential benefits of purchasing a villa.  
 
-User 4 -> Recommendation: The customer is highly positive about the price, location, and service, with an overall sentiment score of 0.9 and a strong intent to purchase at 95% confidence. To capitalize on this excitement, we should quickly provide tailored options and offers that align with their preferences, ensuring a seamless transition towards closing the sale.
+2                                                                                                            
+Focus on highlighting your excellent location and service in your messaging to resonate with the lead's positive sentiments. To address their potential concerns about price, consider offering flexible financing options or special promotions that align with their intention to purchase, while incorporating keywords like "investment" in your pitches to appeal to their excitement and curiosity about apartments as valuable opportunities.  
 
-User 5 -> Recommendation: The user exhibits curiosity about our offerings, particularly regarding pricing, which suggests potential interest. To address their key concern and boost confidence, we should provide detailed information on pricing options and any current promotions while engaging them with thoughtful questions to reduce their anxiety and move them closer to making a decision.
+3                                                                                                                                                                                   
+To engage this cold lead, focus on their curiosity about land by providing valuable information and insights, which can alleviate their anxiety and foster excitement. Additionally, address their concerns about price and service by offering transparent pricing, highlighting customer support improvements, and showcasing positive customer experiences to build trust.  
 
-User 6 -> Recommendation: The user demonstrates strong excitement and a high intent to purchase, with positive sentiments towards the location and service. To capitalize on this increasing sentiment and confidence, we should highlight these strengths in our discussions and offer tailored options that enhance their experience, ensuring we reinforce the positives and address any potential questions they may have.
+4                                                                                                                  
+Given the lead's high composite score of 0.87 and exceptional average sentiment of 0.95, focus your messaging on their excitement about the apartment's price, location, and service. Emphasize these strengths while addressing any potential anxieties by providing detailed information to alleviate concerns—especially regarding the deal—leveraging keywords like "apartment" and "deal" to appeal directly to their intent to purchase.  
 
-User 7 -> Recommendation: The user is currently hesitant, showing significant anxiety regarding price and amenities, with a negative sentiment trend. To engage them effectively, we should emphasize any competitive pricing options and potential value-adds regarding amenities, while also providing reassurance and support to alleviate their concerns—perhaps through a follow-up call or personalized offer.
+5                                                                                                     
+To engage this cold lead effectively, highlight the exceptional service you provide while addressing their concern about price by offering flexible pricing options or limited-time promotions that could alleviate their anxiety. Use the keyword "office" in your messaging to tailor solutions that enhance their office experience, and leverage their curiosity by sharing success stories or case studies that demonstrate the value of your service.  
 
-User 8 -> Recommendation: The user displays a strong positive sentiment towards our pricing, location, and service, with an overall excitement level of 0.9 and a high intent to purchase (0.9). To capitalize on this enthusiasm and ensure a successful sale, we should engage the user promptly with tailored offers or promotions that highlight these positive aspects.
+6                                                                                               
+Focus on highlighting the appealing location of your villas in your messaging, as it elicits a positive sentiment (0.50). To engage this cold lead further, address their curiosity and anxiety by providing detailed information about competitive pricing and exceptional service, ensuring you alleviate any concerns. Utilize the keyword "villa" prominently in your outreach to resonate with their interests and evoke excitement about potential options.  
 
-User 9 -> Recommendation: The user exhibits curiosity and a neutral sentiment towards our offerings, particularly regarding price, which suggests they are in the research phase. To turn this interaction into a sale, we should highlight any competitive pricing options or promotions, while providing additional information to address their concerns and inspire further engagement.
+7                                                                                     
+Focus on the lead's enthusiasm for the apartment's location, as indicated by both the positive sentiment and high excitement level. To capitalize on this interest, craft messaging that highlights the benefits of the apartment's neighborhood and amenities, while also addressing potential concerns about pricing transparently to alleviate any anxiety. Use the keyword "apartment" strategically in your communications to reinforce the lead's intent to purchase.  
 
-User 10 -> Recommendation: The user demonstrates strong excitement and high confidence in their intent to purchase, with positive sentiments regarding price, location, and amenities. To capitalize on this, the sales team should reinforce these positives in communications, provide personalized recommendations based on their preferences, and prompt them to finalize the purchase smoothly to leverage their increasing sentiment trend.
+8                      
+Given the lead's cold status and negative sentiments surrounding pricing and service, it's crucial to emphasize any unique value propositions that justify the cost and enhance service quality in your outreach. Address the concerns directly by offering resources for understanding pricing options and demonstrating exceptional service through testimonials or case studies, while using the keyword "land" in communications to align with their research intent and curiosity, thereby alleviating anxiety and sparking interest.  
+
+9  
+Given that the lead's positive aspect is the location, focus your messaging on highlighting the benefits and conveniences of the apartment's location, which can resonate with their excitement and curiosity. To improve engagement, work on building trust and addressing potential anxieties by providing clear pricing information, which could help enhance their sentiment towards the offer. Utilize keywords like "apartment" in your outreach to ensure relevance and maintain a conversational tone that acknowledges their ongoing purchase intent. 
 '''
