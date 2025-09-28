@@ -1,193 +1,86 @@
-user_data = [
-    {
-        "user_id": "1",
-        "overall_category": "Hot",
-        "overall_sentiment_score": 0.85,
-        "aspect_based_sentiment": {
-            "price": {"sentiment": "negative", "score": -0.6},
-            "location": {"sentiment": "positive", "score": 0.8},
-            "amenities": {"sentiment": "neutral", "score": 0.1},
-            "mortgage_rates": {"sentiment": "negative", "score": -0.4}
-        },
-        "intent_emotion": {
-            "intent": "Purchase",
-            "intent_confidence": 0.9,
-            "emotions": ["Excitement", "Anxiety"],
-            "emotion_scores": {"Excitement": 0.8, "Anxiety": 0.3}
-        },
-        "sentiment_trend": "increasing",
-        "key_concerns": ["price", "mortgage_rates"],
-        "positive_aspects": ["location"]
-    },
-    {
-        "user_id": "2",
-        "overall_category": "Neutral",
-        "overall_sentiment_score": 0.6,
-        "aspect_based_sentiment": {
-            "price": {"sentiment": "neutral", "score": 0.0},
-            "location": {"sentiment": "positive", "score": 0.7},
-            "amenities": {"sentiment": "neutral", "score": 0.1}
-        },
-        "intent_emotion": {
-            "intent": "Research",
-            "intent_confidence": 0.6,
-            "emotions": ["Curiosity"],
-            "emotion_scores": {"Curiosity": 0.7}
-        },
-        "sentiment_trend": "stable",
-        "key_concerns": ["price"],
-        "positive_aspects": ["location"]
-    },
-    {
-        "user_id": "3",
-        "overall_category": "Cold",
-        "overall_sentiment_score": 0.35,
-        "aspect_based_sentiment": {
-            "price": {"sentiment": "negative", "score": -0.7},
-            "location": {"sentiment": "neutral", "score": 0.0},
-            "amenities": {"sentiment": "negative", "score": -0.5}
-        },
-        "intent_emotion": {
-            "intent": "Hesitant",
-            "intent_confidence": 0.4,
-            "emotions": ["Anxiety"],
-            "emotion_scores": {"Anxiety": 0.8}
-        },
-        "sentiment_trend": "decreasing",
-        "key_concerns": ["price", "amenities"],
-        "positive_aspects": []
-    },
-    {
-        "user_id": "4",
-        "overall_category": "Hot",
-        "overall_sentiment_score": 0.9,
-        "aspect_based_sentiment": {
-            "price": {"sentiment": "positive", "score": 0.8},
-            "location": {"sentiment": "positive", "score": 0.9},
-            "service": {"sentiment": "positive", "score": 0.95}
-        },
-        "intent_emotion": {
-            "intent": "Purchase",
-            "intent_confidence": 0.95,
-            "emotions": ["Excitement", "Curiosity"],
-            "emotion_scores": {"Excitement": 0.9, "Curiosity": 0.7}
-        },
-        "sentiment_trend": "increasing",
-        "key_concerns": [],
-        "positive_aspects": ["price", "location", "service"]
-    },
-    {
-        "user_id": "5",
-        "overall_category": "Neutral",
-        "overall_sentiment_score": 0.55,
-        "aspect_based_sentiment": {
-            "price": {"sentiment": "neutral", "score": 0.0},
-            "location": {"sentiment": "neutral", "score": 0.1},
-            "service": {"sentiment": "neutral", "score": 0.0}
-        },
-        "intent_emotion": {
-            "intent": "Research",
-            "intent_confidence": 0.5,
-            "emotions": ["Curiosity", "Anxiety"],
-            "emotion_scores": {"Curiosity": 0.6, "Anxiety": 0.4}
-        },
-        "sentiment_trend": "stable",
-        "key_concerns": ["price"],
-        "positive_aspects": []
-    },
-    {
-        "user_id": "6",
-        "overall_category": "Hot",
-        "overall_sentiment_score": 0.78,
-        "aspect_based_sentiment": {
-            "location": {"sentiment": "positive", "score": 0.8},
-            "service": {"sentiment": "positive", "score": 0.75},
-            "amenities": {"sentiment": "neutral", "score": 0.2}
-        },
-        "intent_emotion": {
-            "intent": "Purchase",
-            "intent_confidence": 0.85,
-            "emotions": ["Excitement"],
-            "emotion_scores": {"Excitement": 0.75}
-        },
-        "sentiment_trend": "increasing",
-        "key_concerns": [],
-        "positive_aspects": ["location", "service"]
-    },
-    {
-        "user_id": "7",
-        "overall_category": "Cold",
-        "overall_sentiment_score": 0.3,
-        "aspect_based_sentiment": {
-            "price": {"sentiment": "negative", "score": -0.6},
-            "location": {"sentiment": "neutral", "score": 0.0},
-            "amenities": {"sentiment": "negative", "score": -0.5}
-        },
-        "intent_emotion": {
-            "intent": "Hesitant",
-            "intent_confidence": 0.4,
-            "emotions": ["Anxiety", "Curiosity"],
-            "emotion_scores": {"Anxiety": 0.8, "Curiosity": 0.3}
-        },
-        "sentiment_trend": "decreasing",
-        "key_concerns": ["price", "amenities"],
-        "positive_aspects": []
-    },
-    {
-        "user_id": "8",
-        "overall_category": "Hot",
-        "overall_sentiment_score": 0.88,
-        "aspect_based_sentiment": {
-            "price": {"sentiment": "positive", "score": 0.8},
-            "location": {"sentiment": "positive", "score": 0.9},
-            "service": {"sentiment": "positive", "score": 0.85}
-        },
-        "intent_emotion": {
-            "intent": "Purchase",
-            "intent_confidence": 0.9,
-            "emotions": ["Excitement"],
-            "emotion_scores": {"Excitement": 0.9}
-        },
-        "sentiment_trend": "increasing",
-        "key_concerns": [],
-        "positive_aspects": ["price", "location", "service"]
-    },
-    {
-        "user_id": "9",
-        "overall_category": "Neutral",
-        "overall_sentiment_score": 0.5,
-        "aspect_based_sentiment": {
-            "price": {"sentiment": "neutral", "score": 0.0},
-            "location": {"sentiment": "neutral", "score": 0.1},
-            "amenities": {"sentiment": "neutral", "score": 0.0}
-        },
-        "intent_emotion": {
-            "intent": "Research",
-            "intent_confidence": 0.55,
-            "emotions": ["Curiosity"],
-            "emotion_scores": {"Curiosity": 0.5}
-        },
-        "sentiment_trend": "stable",
-        "key_concerns": ["price"],
-        "positive_aspects": []
-    },
-    {
-        "user_id": "10",
-        "overall_category": "Hot",
-        "overall_sentiment_score": 0.92,
-        "aspect_based_sentiment": {
-            "price": {"sentiment": "positive", "score": 0.85},
-            "location": {"sentiment": "positive", "score": 0.9},
-            "amenities": {"sentiment": "positive", "score": 0.8}
-        },
-        "intent_emotion": {
-            "intent": "Purchase",
-            "intent_confidence": 0.95,
-            "emotions": ["Excitement"],
-            "emotion_scores": {"Excitement": 0.95}
-        },
-        "sentiment_trend": "increasing",
-        "key_concerns": [],
-        "positive_aspects": ["price", "location", "amenities"]
-    }
+data = [
+    # User 1: Positive purchase intent, improving sentiment
+    {"user_id": 1, "timestamp": "2025-09-20", "overall_sentiment": 0.8, "intent": "purchase",
+     "intent_score": 0.9, "aspects": {"price": "neutral", "location": "positive", "service": "neutral"},
+     "emotion": {"excitement": 0.7, "anxiety": 0.2, "curiosity": 0.5},
+     "keyword_count": {"apartment": 3, "deal": 1}, "engagement": 10},
+
+    {"user_id": 1, "timestamp": "2025-09-21", "overall_sentiment": 0.85, "intent": "purchase",
+     "intent_score": 0.92, "aspects": {"price": "negative", "location": "positive", "service": "positive"},
+     "emotion": {"excitement": 0.8, "anxiety": 0.1, "curiosity": 0.6},
+     "keyword_count": {"apartment": 2, "budget": 2}, "engagement": 12},
+
+    # User 2: Research intent, slightly improving
+    {"user_id": 2, "timestamp": "2025-09-20", "overall_sentiment": -0.35, "intent": "research",
+     "intent_score": 0.4, "aspects": {"price": "negative", "location": "neutral", "service": "negative"},
+     "emotion": {"excitement": 0.1, "anxiety": 0.6, "curiosity": 0.2},
+     "keyword_count": {"villa": 1}, "engagement": 3},
+
+    {"user_id": 2, "timestamp": "2025-09-21", "overall_sentiment": -0.3, "intent": "research",
+     "intent_score": 0.45, "aspects": {"price": "negative", "location": "neutral", "service": "neutral"},
+     "emotion": {"excitement": 0.2, "anxiety": 0.5, "curiosity": 0.3},
+     "keyword_count": {"villa": 1}, "engagement": 4},
+
+    # User 3: Neutral purchase, stable sentiment
+    {"user_id": 3, "timestamp": "2025-09-20", "overall_sentiment": 0.55, "intent": "purchase",
+     "intent_score": 0.65, "aspects": {"price": "neutral", "location": "positive", "service": "positive"},
+     "emotion": {"excitement": 0.5, "anxiety": 0.3, "curiosity": 0.4},
+     "keyword_count": {"apartment": 1, "investment": 2}, "engagement": 8},
+
+    {"user_id": 3, "timestamp": "2025-09-21", "overall_sentiment": 0.52, "intent": "purchase",
+     "intent_score": 0.63, "aspects": {"price": "neutral", "location": "positive", "service": "positive"},
+     "emotion": {"excitement": 0.45, "anxiety": 0.25, "curiosity": 0.35},
+     "keyword_count": {"apartment": 2, "investment": 1}, "engagement": 7},
+
+    # User 4: Negative sentiment, low intent
+    {"user_id": 4, "timestamp": "2025-09-20", "overall_sentiment": -0.5, "intent": "research",
+     "intent_score": 0.2, "aspects": {"price": "negative", "location": "neutral", "service": "negative"},
+     "emotion": {"excitement": 0.1, "anxiety": 0.8, "curiosity": 0.2},
+     "keyword_count": {"land": 1}, "engagement": 2},
+
+    {"user_id": 4, "timestamp": "2025-09-21", "overall_sentiment": -0.45, "intent": "research",
+     "intent_score": 0.25, "aspects": {"price": "negative", "location": "neutral", "service": "negative"},
+     "emotion": {"excitement": 0.15, "anxiety": 0.75, "curiosity": 0.25},
+     "keyword_count": {"land": 1}, "engagement": 3},
+
+    # User 5: Strong Hot lead
+    {"user_id": 5, "timestamp": "2025-09-20", "overall_sentiment": 0.95, "intent": "purchase",
+     "intent_score": 0.97, "aspects": {"price": "positive", "location": "positive", "service": "positive"},
+     "emotion": {"excitement": 0.9, "anxiety": 0.1, "curiosity": 0.8},
+     "keyword_count": {"apartment": 4, "deal": 2}, "engagement": 20},
+
+    # User 6: Mixed sentiment
+    {"user_id": 6, "timestamp": "2025-09-20", "overall_sentiment": 0.1, "intent": "purchase",
+     "intent_score": 0.5, "aspects": {"price": "negative", "location": "neutral", "service": "positive"},
+     "emotion": {"excitement": 0.3, "anxiety": 0.4, "curiosity": 0.5},
+     "keyword_count": {"office": 1}, "engagement": 5},
+
+    # User 7: Research intent, improving
+    {"user_id": 7, "timestamp": "2025-09-20", "overall_sentiment": 0.0, "intent": "research",
+     "intent_score": 0.3, "aspects": {"price": "neutral", "location": "neutral", "service": "neutral"},
+     "emotion": {"excitement": 0.2, "anxiety": 0.5, "curiosity": 0.2},
+     "keyword_count": {"villa": 1}, "engagement": 4},
+
+    {"user_id": 7, "timestamp": "2025-09-21", "overall_sentiment": 0.05, "intent": "research",
+     "intent_score": 0.35, "aspects": {"price": "neutral", "location": "positive", "service": "neutral"},
+     "emotion": {"excitement": 0.25, "anxiety": 0.45, "curiosity": 0.25},
+     "keyword_count": {"villa": 1}, "engagement": 5},
+
+    # User 8: Positive purchase intent, high engagement
+    {"user_id": 8, "timestamp": "2025-09-20", "overall_sentiment": 0.75, "intent": "purchase",
+     "intent_score": 0.85, "aspects": {"price": "neutral", "location": "positive", "service": "neutral"},
+     "emotion": {"excitement": 0.7, "anxiety": 0.15, "curiosity": 0.6},
+     "keyword_count": {"apartment": 2}, "engagement": 15},
+
+    # User 9: Low sentiment, low intent
+    {"user_id": 9, "timestamp": "2025-09-20", "overall_sentiment": -0.6, "intent": "research",
+     "intent_score": 0.15, "aspects": {"price": "negative", "location": "neutral", "service": "negative"},
+     "emotion": {"excitement": 0.05, "anxiety": 0.9, "curiosity": 0.1},
+     "keyword_count": {"land": 1}, "engagement": 1},
+
+    # User 10: Mixed, stable
+    {"user_id": 10, "timestamp": "2025-09-20", "overall_sentiment": 0.2, "intent": "purchase",
+     "intent_score": 0.55, "aspects": {"price": "neutral", "location": "positive", "service": "neutral"},
+     "emotion": {"excitement": 0.4, "anxiety": 0.3, "curiosity": 0.5},
+     "keyword_count": {"apartment": 1}, "engagement": 7},
 ]
