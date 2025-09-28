@@ -1,51 +1,141 @@
-import json
+import pandas as pd
+import numpy as np
+from collections import Counter
+from datetime import datetime
 from openai import OpenAI
+client = OpenAI(api_key="api-key")
 
-client = OpenAI(api_key="API KEY")
+df = pd.DataFrame(data)
+df["timestamp"] = pd.to_datetime(df["timestamp"])
 
-with open("user_data.json") as f:
-    user_data = json.load(f)
+def sentiment_mapping(val):
+#Converting aspect labels to numeric score for averaging
+    mapping = {"positive": 1, "neutral": 0, "negative": -1}
+    return mapping.get(val, 0)
 
-def generate_recommendation(user):
-    aspect_sentiments = ", ".join(
-        [f"{k} ({v['sentiment']}): {v['score']}" for k, v in user["aspect_based_sentiment"].items()]
-    )
+def aggregate_user(user_df):
+    user_df = user_df.sort_values("timestamp")
     
-    emotions = ", ".join([f"{e}: {s}" for e, s in user["intent_emotion"]["emotion_scores"].items()])
+    avg_sentiment = user_df["overall_sentiment"].mean()
+    avg_intent = user_df["intent_score"].mean()
+    avg_engagement = user_df["engagement"].mean()
+    last_aspects = user_df.iloc[-1]["aspects"]
+    last_intent = user_df.iloc[-1]["intent"]
     
-    key_concerns = ", ".join(user["key_concerns"]) if user["key_concerns"] else "None"
-    positive_aspects = ", ".join(user["positive_aspects"]) if user["positive_aspects"] else "None"
+    # Aspect-Level Sentiment
+    aspect_sums = {}
+    aspect_counts = {}
+    for row in user_df.itertuples():
+        for aspect, sentiment in row.aspects.items():
+            aspect_sums[aspect] = aspect_sums.get(aspect, 0) + sentiment_mapping(sentiment)
+            aspect_counts[aspect] = aspect_counts.get(aspect, 0) + 1
+    avg_aspect_sentiment = {k: aspect_sums[k]/aspect_counts[k] for k in aspect_sums}
+    
+    # Intent Evolution
+    first_intent = user_df.iloc[0]["intent"]
+    intent_trend = (last_intent, first_intent)
+    
+    # Emotion analysis: average per emotion type
+    emotion_sums = {}
+    emotion_counts = {}
+    for row in user_df.itertuples():
+        for emo, val in row.emotion.items():
+            emotion_sums[emo] = emotion_sums.get(emo, 0) + val
+            emotion_counts[emo] = emotion_counts.get(emo, 0) + 1
+    avg_emotion = {k: emotion_sums[k]/emotion_counts[k] for k in emotion_sums}
+    
+    return pd.Series({
+        "avg_sentiment": avg_sentiment,
+        "avg_intent": avg_intent,
+        "avg_engagement": avg_engagement,
+        "last_aspects": last_aspects,
+        "last_intent": last_intent,
+        "avg_aspect_sentiment": avg_aspect_sentiment,
+        "intent_trend": intent_trend,
+        "avg_emotion": avg_emotion
+    })
+
+agg_df = df.groupby("user_id").apply(aggregate_user).reset_index()
+max_eng = df.groupby("user_id")["engagement"].mean().max() 
+
+def compute_composite(row):
+    intent_weight = 1.0 if row["last_intent"] == "purchase" else 0.7 if row["last_intent"] == "research" else 0.5
+    score = (0.35 * row["avg_sentiment"] +
+             0.35 * row["avg_intent"] * intent_weight +
+             0.2 * (row["avg_engagement"] / max_eng)) 
+    return min(max(score, 0), 1)
+
+def categorize_lead(row):
+    score = row["composite_score"]
+    if score > 0.7 and row["last_intent"] == "purchase":
+        return "Hot"
+    elif 0.4 <= score <= 0.7:
+        return "Neutral"
+    else:
+        return "Cold"
+
+agg_df["composite_score"] = agg_df.apply(compute_composite, axis=1)
+agg_df["lead_category"] = agg_df.apply(categorize_lead, axis=1)
+
+# Keyword recommendation
+def aggregate_keywords(user_df):
+    total_keywords = Counter()
+    for kw_dict in user_df["keyword_count"]:
+        total_keywords.update(kw_dict)
+    return dict(total_keywords)
+
+agg_df["keywords"] = df.groupby("user_id").apply(aggregate_keywords).values
+
+def top_keywords(keyword_dict, top_n=3):
+    if not keyword_dict:
+        return []
+    # Sorting the keywords by frequency
+    sorted_keywords = sorted(keyword_dict.items(), key=lambda x: x[1], reverse=True)
+    return [k for k, v in sorted_keywords[:top_n]]
+
+agg_df["top_keywords"] = agg_df["keywords"].apply(top_keywords)
+
+
+def generate_recommendation_ai(row):
+    # Format aspect-level sentiment
+    aspect_sentiment_str = ", ".join([f"{k}: {v:.2f}" for k, v in row['avg_aspect_sentiment'].items()])
+    
+    # Format average emotions
+    emotion_str = ", ".join([f"{k}: {v:.2f}" for k, v in row['avg_emotion'].items()])
+    
+    # Format intent trend
+    intent_trend_str = f"{row['intent_trend'][1]} → {row['intent_trend'][0]}"
+    
+    # Prepare keywords
+    keywords = ", ".join(row['top_keywords']) if row['top_keywords'] else "key topics"
     
     prompt = f"""
-You are a sales assistant. Here’s the user data:
-- User ID: {user['user_id']}
-- Overall category: {user['overall_category']}
-- Overall sentiment score: {user['overall_sentiment_score']}
-- Aspect-based sentiment: {aspect_sentiments}
-- Intent: {user['intent_emotion']['intent']} (confidence: {user['intent_emotion']['intent_confidence']})
-- Emotions: {emotions}
-- Sentiment trend: {user['sentiment_trend']}
-- Key concerns: {key_concerns}
-- Positive aspects: {positive_aspects}
+    You are an assistant helping sales teams.
+    Here’s the user data:
+    - Lead category: {row['lead_category']}
+    - Composite score: {row['composite_score']:.2f}
+    - Average sentiment: {row['avg_sentiment']:.2f}
+    - Intent: {row['last_intent']}
+    - Intent trend: {intent_trend_str}
+    - Positive aspects: {[k for k,v in row['last_aspects'].items() if v=='positive']}
+    - Negative aspects: {[k for k,v in row['last_aspects'].items() if v=='negative']}
+    - Avg aspect sentiment: {aspect_sentiment_str}
+    - Avg emotions: {emotion_str}
+    - Top keywords: {keywords}
 
-Write a concise 1–2 sentence recommendation for the sales team:
-- Emphasize positives
-- Address key concerns
-- Suggest next steps to turn the interaction into a sale
-- Consider sentiment, emotions, and intent confidence
-"""
-    
+    Write a clear sales recommendation (1–2 sentences). 
+    Emphasize positive aspects, suggest improvements for negatives, 
+    mention how to use top keywords in messaging, and consider sentiment trends and user emotions.
+    """
+
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[{"role": "user", "content": prompt}]
     )
+
     return response.choices[0].message.content.strip()
 
-all_recommendations = []
-for user in user_data:
-    rec = generate_recommendation(user)
-    all_recommendations.append({"user_id": user["user_id"], "recommendation": rec})
+agg_df["recommendation"] = agg_df.apply(generate_recommendation_ai, axis=1)
 
-for r in all_recommendations:
-    print(f"User {r['user_id']} -> Recommendation: {r['recommendation']}\n")
-    
+pd.set_option('display.max_colwidth', None)
+print(agg_df[["user_id", "composite_score", "lead_category", "recommendation"]])
