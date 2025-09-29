@@ -28,3 +28,4 @@ agg_df["recommendation"] = agg_df.apply(generate_recommendation_ai, axis=1)
 
 pd.set_option('display.max_colwidth', None)
 print(agg_df[["user_id", "composite_score", "lead_category", "recommendation"]])
+
