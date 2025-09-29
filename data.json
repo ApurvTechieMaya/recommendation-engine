@@ -1,0 +1,322 @@
+[
+    {
+        "user_id": 1,
+        "timestamp": "2025-09-20",
+        "overall_sentiment": 0.8,
+        "intent": "purchase",
+        "intent_score": 0.9,
+        "aspects": {
+            "price": "neutral",
+            "location": "positive",
+            "service": "neutral"
+        },
+        "emotion": {
+            "excitement": 0.7,
+            "anxiety": 0.2,
+            "curiosity": 0.5
+        },
+        "keyword_count": {
+            "apartment": 3,
+            "deal": 1
+        },
+        "engagement": 10
+    },
+    {
+        "user_id": 1,
+        "timestamp": "2025-09-21",
+        "overall_sentiment": 0.85,
+        "intent": "purchase",
+        "intent_score": 0.92,
+        "aspects": {
+            "price": "negative",
+            "location": "positive",
+            "service": "positive"
+        },
+        "emotion": {
+            "excitement": 0.8,
+            "anxiety": 0.1,
+            "curiosity": 0.6
+        },
+        "keyword_count": {
+            "apartment": 2,
+            "budget": 2
+        },
+        "engagement": 12
+    },
+    {
+        "user_id": 2,
+        "timestamp": "2025-09-20",
+        "overall_sentiment": -0.35,
+        "intent": "research",
+        "intent_score": 0.4,
+        "aspects": {
+            "price": "negative",
+            "location": "neutral",
+            "service": "negative"
+        },
+        "emotion": {
+            "excitement": 0.1,
+            "anxiety": 0.6,
+            "curiosity": 0.2
+        },
+        "keyword_count": {
+            "villa": 1
+        },
+        "engagement": 3
+    },
+    {
+        "user_id": 2,
+        "timestamp": "2025-09-21",
+        "overall_sentiment": -0.3,
+        "intent": "research",
+        "intent_score": 0.45,
+        "aspects": {
+            "price": "negative",
+            "location": "neutral",
+            "service": "neutral"
+        },
+        "emotion": {
+            "excitement": 0.2,
+            "anxiety": 0.5,
+            "curiosity": 0.3
+        },
+        "keyword_count": {
+            "villa": 1
+        },
+        "engagement": 4
+    },
+    {
+        "user_id": 3,
+        "timestamp": "2025-09-20",
+        "overall_sentiment": 0.55,
+        "intent": "purchase",
+        "intent_score": 0.65,
+        "aspects": {
+            "price": "neutral",
+            "location": "positive",
+            "service": "positive"
+        },
+        "emotion": {
+            "excitement": 0.5,
+            "anxiety": 0.3,
+            "curiosity": 0.4
+        },
+        "keyword_count": {
+            "apartment": 1,
+            "investment": 2
+        },
+        "engagement": 8
+    },
+    {
+        "user_id": 3,
+        "timestamp": "2025-09-21",
+        "overall_sentiment": 0.52,
+        "intent": "purchase",
+        "intent_score": 0.63,
+        "aspects": {
+            "price": "neutral",
+            "location": "positive",
+            "service": "positive"
+        },
+        "emotion": {
+            "excitement": 0.45,
+            "anxiety": 0.25,
+            "curiosity": 0.35
+        },
+        "keyword_count": {
+            "apartment": 2,
+            "investment": 1
+        },
+        "engagement": 7
+    },
+    {
+        "user_id": 4,
+        "timestamp": "2025-09-20",
+        "overall_sentiment": -0.5,
+        "intent": "research",
+        "intent_score": 0.2,
+        "aspects": {
+            "price": "negative",
+            "location": "neutral",
+            "service": "negative"
+        },
+        "emotion": {
+            "excitement": 0.1,
+            "anxiety": 0.8,
+            "curiosity": 0.2
+        },
+        "keyword_count": {
+            "land": 1
+        },
+        "engagement": 2
+    },
+    {
+        "user_id": 4,
+        "timestamp": "2025-09-21",
+        "overall_sentiment": -0.45,
+        "intent": "research",
+        "intent_score": 0.25,
+        "aspects": {
+            "price": "negative",
+            "location": "neutral",
+            "service": "negative"
+        },
+        "emotion": {
+            "excitement": 0.15,
+            "anxiety": 0.75,
+            "curiosity": 0.25
+        },
+        "keyword_count": {
+            "land": 1
+        },
+        "engagement": 3
+    },
+    {
+        "user_id": 5,
+        "timestamp": "2025-09-20",
+        "overall_sentiment": 0.95,
+        "intent": "purchase",
+        "intent_score": 0.97,
+        "aspects": {
+            "price": "positive",
+            "location": "positive",
+            "service": "positive"
+        },
+        "emotion": {
+            "excitement": 0.9,
+            "anxiety": 0.1,
+            "curiosity": 0.8
+        },
+        "keyword_count": {
+            "apartment": 4,
+            "deal": 2
+        },
+        "engagement": 20
+    },
+    {
+        "user_id": 6,
+        "timestamp": "2025-09-20",
+        "overall_sentiment": 0.1,
+        "intent": "purchase",
+        "intent_score": 0.5,
+        "aspects": {
+            "price": "negative",
+            "location": "neutral",
+            "service": "positive"
+        },
+        "emotion": {
+            "excitement": 0.3,
+            "anxiety": 0.4,
+            "curiosity": 0.5
+        },
+        "keyword_count": {
+            "office": 1
+        },
+        "engagement": 5
+    },
+    {
+        "user_id": 7,
+        "timestamp": "2025-09-20",
+        "overall_sentiment": 0.0,
+        "intent": "research",
+        "intent_score": 0.3,
+        "aspects": {
+            "price": "neutral",
+            "location": "neutral",
+            "service": "neutral"
+        },
+        "emotion": {
+            "excitement": 0.2,
+            "anxiety": 0.5,
+            "curiosity": 0.2
+        },
+        "keyword_count": {
+            "villa": 1
+        },
+        "engagement": 4
+    },
+    {
+        "user_id": 7,
+        "timestamp": "2025-09-21",
+        "overall_sentiment": 0.05,
+        "intent": "research",
+        "intent_score": 0.35,
+        "aspects": {
+            "price": "neutral",
+            "location": "positive",
+            "service": "neutral"
+        },
+        "emotion": {
+            "excitement": 0.25,
+            "anxiety": 0.45,
+            "curiosity": 0.25
+        },
+        "keyword_count": {
+            "villa": 1
+        },
+        "engagement": 5
+    },
+    {
+        "user_id": 8,
+        "timestamp": "2025-09-20",
+        "overall_sentiment": 0.75,
+        "intent": "purchase",
+        "intent_score": 0.85,
+        "aspects": {
+            "price": "neutral",
+            "location": "positive",
+            "service": "neutral"
+        },
+        "emotion": {
+            "excitement": 0.7,
+            "anxiety": 0.15,
+            "curiosity": 0.6
+        },
+        "keyword_count": {
+            "apartment": 2
+        },
+        "engagement": 15
+    },
+    {
+        "user_id": 9,
+        "timestamp": "2025-09-20",
+        "overall_sentiment": -0.6,
+        "intent": "research",
+        "intent_score": 0.15,
+        "aspects": {
+            "price": "negative",
+            "location": "neutral",
+            "service": "negative"
+        },
+        "emotion": {
+            "excitement": 0.05,
+            "anxiety": 0.9,
+            "curiosity": 0.1
+        },
+        "keyword_count": {
+            "land": 1
+        },
+        "engagement": 1
+    },
+    {
+        "user_id": 10,
+        "timestamp": "2025-09-20",
+        "overall_sentiment": 0.2,
+        "intent": "purchase",
+        "intent_score": 0.55,
+        "aspects": {
+            "price": "neutral",
+            "location": "positive",
+            "service": "neutral"
+        },
+        "emotion": {
+            "excitement": 0.4,
+            "anxiety": 0.3,
+            "curiosity": 0.5
+        },
+        "keyword_count": {
+            "apartment": 1
+        },
+        "engagement": 7
+    }
+]
